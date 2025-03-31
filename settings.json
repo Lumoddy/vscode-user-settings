@@ -1,0 +1,17 @@
+{
+  "workbench.colorTheme": "Default Dark Modern",
+  "redhat.telemetry.enabled": false,
+  "php.debug.executablePath": "",
+  "editor.renderWhitespace": "trailing",
+  "editor.minimap.enabled": false,
+  "editor.foldingStrategy": "indentation",
+  "django.snippets.use": false,
+  "django.showContributeNotification": false,
+  "django.i18n": false,
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "workbench.editorAssociations": {
+    "*.svg": "default"
+  },
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false
+}

@@ -1,0 +1,71 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+    "key": "ctrl+r ctrl+r",
+    "command": "renameFile",
+    "when": "explorerViewletFocus",
+  },
+  {
+    "key": "ctrl+r ctrl+r",
+    "command": "editor.action.rename",
+    "when": "editorFocus && !editorReadonly",
+  },
+
+  {
+    "key": "ctrl+shift+s",
+    "command": "saveAll",
+  },
+
+  {
+    "key": "ctrl+[",
+    "command": "workbench.action.navigateBackInEditLocations",
+  },
+  {
+    "key": "ctrl+]",
+    "command": "workbench.action.navigateForwardInEditLocations",
+  },
+
+  {
+    "key": "ctrl+up",
+    "command": "runCommands",
+    "args": { // x10
+      "commands": ["cursorUp", "cursorUp", "cursorUp", "cursorUp", "cursorUp", "cursorUp", "cursorUp", "cursorUp", "cursorUp", "cursorUp"],
+    },
+    "when": "textInputFocus",
+  },
+
+  {
+    "key": "ctrl+down",
+    "command": "runCommands",
+    "args": { // x10
+      "commands": ["cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown"],
+    },
+    "when": "textInputFocus",
+  },
+  
+  {
+    "key": "end",
+    "command": "editor.action.jumpToBracket",
+  },
+  {
+    "key": "shift+end",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "editor.action.jumpToBracket",
+        "editor.action.selectToBracket",
+      ],
+    },
+  },
+
+  {
+    "key": "ctrl+`",
+    "command": "terminal.focus",
+    "when": "!terminalFocus",
+  },
+  {
+    "key": "ctrl+`",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus",
+  },
+]
