@@ -24,6 +24,10 @@
     "key": "ctrl+]",
     "command": "workbench.action.navigateForwardInEditLocations",
   },
+  {
+    "key": "ctrl+k ctrl+o",
+    "command": "editor.action.goToDeclaration",
+  },
 
   {
     "key": "ctrl+up",
