@@ -32,8 +32,8 @@
   {
     "key": "ctrl+up",
     "command": "runCommands",
-    "args": { // x10
-      "commands": ["cursorUp", "cursorUp", "cursorUp", "cursorUp", "cursorUp", "cursorUp", "cursorUp", "cursorUp", "cursorUp", "cursorUp"],
+    "args": { // x8
+      "commands": ["cursorUp", "cursorUp", "cursorUp", "cursorUp", "cursorUp", "cursorUp", "cursorUp", "cursorUp"],
     },
     "when": "textInputFocus",
   },
@@ -41,25 +41,10 @@
   {
     "key": "ctrl+down",
     "command": "runCommands",
-    "args": { // x10
-      "commands": ["cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown"],
+    "args": { // x8
+      "commands": ["cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown"],
     },
     "when": "textInputFocus",
-  },
-  
-  {
-    "key": "end",
-    "command": "editor.action.jumpToBracket",
-  },
-  {
-    "key": "shift+end",
-    "command": "runCommands",
-    "args": {
-      "commands": [
-        "editor.action.jumpToBracket",
-        "editor.action.selectToBracket",
-      ],
-    },
   },
 
   {
