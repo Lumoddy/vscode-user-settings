@@ -3,7 +3,6 @@
   "redhat.telemetry.enabled": false,
   "php.debug.executablePath": "",
   "editor.renderWhitespace": "trailing",
-  "editor.minimap.enabled": false,
   "editor.foldingStrategy": "indentation",
   "django.snippets.use": false,
   "django.showContributeNotification": false,
@@ -13,5 +12,12 @@
     "*.svg": "default"
   },
   "git.enableSmartCommit": true,
-  "git.confirmSync": false
+  "git.confirmSync": false,
+  "github.copilot.renameSuggestions.triggerAutomatically": false,
+  "github.copilot.editor.enableAutoCompletions": false,
+  "inlineChat.holdToSpeech": false,
+  "inlineChat.lineNaturalLanguageHint": false,
+  "accessibility.verbosity.inlineChat": false,
+  "accessibility.verbosity.panelChat": false,
+  "workbench.editor.empty.hint": "hidden"
 }

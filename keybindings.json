@@ -17,6 +17,22 @@
   },
 
   {
+    "key": "ctrl+w",
+    "command": "workbench.action.closeAuxiliaryBar",
+    "when": "auxiliaryBarFocus",
+  },
+  {
+    "key": "ctrl+w",
+    "command": "workbench.action.closeSidebar",
+    "when": "sideBarFocus",
+  },
+  {
+    "key": "ctrl+w",
+    "command": "workbench.action.togglePanel",
+    "when": "panelFocus",
+  },
+
+  {
     "key": "ctrl+[",
     "command": "workbench.action.navigateBackInEditLocations",
   },
@@ -25,8 +41,21 @@
     "command": "workbench.action.navigateForwardInEditLocations",
   },
   {
+    "key": "ctrl+u",
+    "command": "inlineChat.start",
+  },
+  {
     "key": "ctrl+k ctrl+o",
     "command": "editor.action.goToDeclaration",
+  },
+  {
+    "key": "ctrl+i",
+    "command": "editor.action.triggerSuggest",
+  },
+
+  {
+    "key": "ctrl+shift+u",
+    "command": "workbench.panel.chat",
   },
 
   {
@@ -57,7 +86,7 @@
     "command": "workbench.action.focusActiveEditorGroup",
     "when": "terminalFocus",
   },
-  
+
   {
     "key": "ctrl+n",
     "command": "explorer.newFile",
@@ -65,5 +94,26 @@
   {
     "key": "ctrl+shift+n",
     "command": "explorer.newFolder",
+  },
+
+  {
+    "key": "ctrl+g ctrl+c",
+    "command": "git.checkout",
+  },
+  {
+    "key": "ctrl+g ctrl+n",
+    "command": "git.branchFrom",
+  },
+  {
+    "key": "ctrl+g ctrl+r",
+    "command": "git.rebase",
+  },
+  {
+    "key": "ctrl+g ctrl+p",
+    "command": "git.push",
+  },
+  {
+    "key": "ctrl+g ctrl+o",
+    "command": "git.commit",
   },
 ]

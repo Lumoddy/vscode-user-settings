@@ -1,0 +1,142 @@
+{
+  "'export' with JSDoc": {
+    "prefix": "export",
+    "body": [
+      "/**",
+      "*/ export $0",
+    ],
+  },
+
+  "Public access JSDoc": {
+    "prefix": "public",
+    "body": [
+      "/**",
+      "@public*/ $0",
+    ],
+  },
+  "Protected access JSDoc": {
+    "prefix": "protected",
+    "body": [
+      "/**",
+      "@protected*/ $0",
+    ],
+  },
+  "Private access JSDoc": {
+    "prefix": "private",
+    "body": [
+      "/**",
+      "@private*/ $0",
+    ],
+  },
+  "Public override JSDoc": {
+    "prefix": "override",
+    "body": [
+      "/**",
+      "@public @override*/ $0",
+    ],
+  },
+  "Public static JSDoc": {
+    "prefix": "static",
+    "body": [
+      "/**",
+      "@public*/ static $0",
+    ],
+  },
+  "Public constructor JSDoc": {
+    "prefix": "constructor",
+    "body": [
+      "/**",
+      "@public*/ constructor($1)",
+      "{",
+      "    $2",
+      "}",
+    ],
+  },
+  "Public get JSDoc": {
+    "prefix": "get",
+    "body": [
+      "/**",
+      "@public*/ get ${1:value}() { return $0 }",
+    ],
+  },
+  "Public set JSDoc": {
+    "prefix": "set",
+    "body": [
+      "/**",
+      "@public*/ set ${1:value}(value) { $0 }",
+    ],
+  },
+  "Public get/set JSDoc": {
+    "prefix": "getset",
+    "body": [
+      "/**",
+      "@public*/ get ${1:value}()",
+      "{",
+      "    $2",
+      "}",
+      "/**",
+      "@public*/ set ${1:value}(value)",
+      "{",
+      "    $3",
+      "}",
+    ],
+  },
+  "Public inline get/set JSDoc": {
+    "prefix": "getset",
+    "body": [
+      "/**",
+      "@public*/ get ${1:value}() { return $2 }",
+      "/**",
+      "@public*/ set ${1:value}(value) { $3 }",
+    ],
+  },
+
+  "Inline return": {
+    "prefix": "return",
+    "body": [
+      "{ return $0 }",
+    ],
+  },
+  
+  "Cast JSDoc": {
+    "prefix": "casttype",
+    "body": [
+      "/** @type {$1} */($2)",
+    ],
+  },
+  "Cast Const JSDoc": {
+    "prefix": "castconst",
+    "body": [
+      "/** @type {const} */($1)",
+    ],
+  },
+  "Satisfies JSDoc": {
+    "prefix": "satisfies",
+    "body": [
+      "/** @satisfies {$1} */($2)",
+    ],
+  },
+  "Satisfies Const JSDoc": {
+    "prefix": "satisfiesconst",
+    "body": [
+      "/** @satisfies {$1} @type {const} */($2)",
+    ],
+  },
+  "Type Definition JSDoc": {
+    "prefix": "typedef",
+    "body": [
+      "/**",
+      "@typedef {$1} ${2:Type}",
+      "*/",
+    ],
+  },
+
+  "For-Of Loop": {
+    "prefix": "foreach",
+    "body": [
+      "for (const ${1:element} of ${2:object}) {",
+      "    $0",
+      "}",
+    ],
+  },
+}
