@@ -1,0 +1,19 @@
+{
+	"Inline return": {
+	  "prefix": "return",
+	  "body": [
+		"{ return $0; }",
+	  ],
+	},
+
+	"Iterator pattern": {
+	  "prefix": "const",
+	  "body": [
+		"[[nodiscard]] ${1:_T*} begin() { return ${2}; }",
+		"[[nodiscard]] const ${1:_T*} begin() const { return ${2}; }",
+		"",
+		"[[nodiscard]] ${1:_T*} end() { return ${3}; }",
+		"[[nodiscard]] const ${1:_T*} end() const { return ${3}; }",
+	  ],
+	},
+}

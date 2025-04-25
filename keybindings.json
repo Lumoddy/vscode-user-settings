@@ -24,7 +24,7 @@
   {
     "key": "ctrl+w",
     "command": "workbench.action.closeSidebar",
-    "when": "sideBarFocus",
+    "when": "sideBarFocus", // && activeEditorIsNotPreview
   },
   {
     "key": "ctrl+w",
@@ -47,6 +47,11 @@
   {
     "key": "ctrl+k ctrl+o",
     "command": "editor.action.goToDeclaration",
+    "when": "editorFocus",
+  },
+  {
+    "key": "ctrl+k ctrl+k",
+    "command": "workbench.action.focusActiveEditorGroup",
   },
   {
     "key": "ctrl+i",
@@ -66,12 +71,28 @@
     },
     "when": "textInputFocus",
   },
+  {
+    "key": "shift+ctrl+up",
+    "command": "runCommands",
+    "args": { // x8
+      "commands": ["cursorUpSelect", "cursorUpSelect", "cursorUpSelect", "cursorUpSelect", "cursorUpSelect", "cursorUpSelect", "cursorUpSelect", "cursorUpSelect"],
+    },
+    "when": "textInputFocus",
+  },
 
   {
     "key": "ctrl+down",
     "command": "runCommands",
     "args": { // x8
       "commands": ["cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown"],
+    },
+    "when": "textInputFocus",
+  },
+  {
+    "key": "shift+ctrl+down",
+    "command": "runCommands",
+    "args": { // x8
+      "commands": ["cursorDownSelect", "cursorDownSelect", "cursorDownSelect", "cursorDownSelect", "cursorDownSelect", "cursorDownSelect", "cursorDownSelect", "cursorDownSelect"],
     },
     "when": "textInputFocus",
   },
@@ -97,7 +118,7 @@
   },
 
   {
-    "key": "ctrl+g ctrl+c",
+    "key": "ctrl+g ctrl+o",
     "command": "git.checkout",
   },
   {
@@ -113,7 +134,31 @@
     "command": "git.push",
   },
   {
-    "key": "ctrl+g ctrl+o",
+    "key": "ctrl+g shift+ctrl+p",
+    "command": "git.publish",
+  },
+  {
+    "key": "ctrl+g ctrl+c",
     "command": "git.commit",
+  },
+  {
+    "key": "ctrl+g ctrl+m",
+    "command": "git.merge",
+  },
+  {
+    "key": "ctrl+g ctrl+s",
+    "command": "git.stash",
+  },
+  {
+    "key": "ctrl+g ctrl+v",
+    "command": "git.stashApply",
+  },
+  {
+    "key": "ctrl+g ctrl+]",
+    "command": "git.stage",
+  },
+  {
+    "key": "ctrl+g ctrl+[",
+    "command": "git.unstage",
   },
 ]
