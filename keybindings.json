@@ -1,5 +1,10 @@
-// Place your key bindings in this file to override the defaults
 [
+  {
+    "key": "ctrl+shift+c",
+    "command": "-workbench.action.terminal.openNativeConsole",
+    "when": "!terminalFocus"
+  },
+
   {
     "key": "ctrl+r ctrl+r",
     "command": "renameFile",
@@ -8,7 +13,7 @@
   {
     "key": "ctrl+r ctrl+r",
     "command": "editor.action.rename",
-    "when": "editorFocus && !editorReadonly",
+    "when": "editorTextFocus && !editorReadonly",
   },
 
   {
@@ -24,7 +29,12 @@
   {
     "key": "ctrl+w",
     "command": "workbench.action.closeSidebar",
-    "when": "sideBarFocus", // && activeEditorIsNotPreview
+    "when": "sideBarFocus && activeEditorIsNotPreview",
+  },
+  {
+    "key": "ctrl+w",
+    "command": "workbench.action.closeActiveEditor",
+    "when": "sideBarFocus && !activeEditorIsNotPreview",
   },
   {
     "key": "ctrl+w",
@@ -33,29 +43,33 @@
   },
 
   {
-    "key": "ctrl+[",
-    "command": "workbench.action.navigateBackInEditLocations",
-  },
-  {
-    "key": "ctrl+]",
-    "command": "workbench.action.navigateForwardInEditLocations",
-  },
-  {
     "key": "ctrl+u",
     "command": "inlineChat.start",
   },
   {
     "key": "ctrl+k ctrl+o",
     "command": "editor.action.goToDeclaration",
-    "when": "editorFocus",
+    "when": "editorTextFocus",
   },
   {
     "key": "ctrl+k ctrl+k",
     "command": "workbench.action.focusActiveEditorGroup",
+    "when": "!editorTextFocus",
+  },
+  {
+    "key": "ctrl+k ctrl+k",
+    "command": "workbench.action.navigateBackInEditLocations",
+    "when": "editorTextFocus",
+  },
+  {
+    "key": "ctrl+k ctrl+l",
+    "command": "workbench.action.navigateForwardInEditLocations",
+    "when": "editorTextFocus",
   },
   {
     "key": "ctrl+i",
     "command": "editor.action.triggerSuggest",
+    "when": "editorTextFocus",
   },
 
   {
@@ -79,12 +93,28 @@
     },
     "when": "textInputFocus",
   },
+  {
+    "key": "shift+ctrl+up",
+    "command": "runCommands",
+    "args": { // x8
+      "commands": ["cursorUpSelect", "cursorUpSelect", "cursorUpSelect", "cursorUpSelect", "cursorUpSelect", "cursorUpSelect", "cursorUpSelect", "cursorUpSelect"],
+    },
+    "when": "textInputFocus",
+  },
 
   {
     "key": "ctrl+down",
     "command": "runCommands",
     "args": { // x8
       "commands": ["cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown"],
+    },
+    "when": "textInputFocus",
+  },
+  {
+    "key": "shift+ctrl+down",
+    "command": "runCommands",
+    "args": { // x8
+      "commands": ["cursorDownSelect", "cursorDownSelect", "cursorDownSelect", "cursorDownSelect", "cursorDownSelect", "cursorDownSelect", "cursorDownSelect", "cursorDownSelect"],
     },
     "when": "textInputFocus",
   },
@@ -138,8 +168,40 @@
     "command": "git.publish",
   },
   {
+    "key": "ctrl+g ctrl+u",
+    "command": "git.pull",
+  },
+  {
     "key": "ctrl+g ctrl+c",
-    "command": "git.commit",
+    "command": "git.commitStaged",
+  },
+  {
+    "key": "ctrl+g ctrl+a",
+    "command": "git.commitStagedAmend",
+  },
+  {
+    "key": "ctrl+g ctrl+m",
+    "command": "git.merge",
+  },
+  {
+    "key": "ctrl+g ctrl+s",
+    "command": "git.stash",
+  },
+  {
+    "key": "ctrl+g ctrl+v",
+    "command": "git.stashApply",
+  },
+  {
+    "key": "ctrl+g ctrl+z",
+    "command": "git.undoCommit",
+  },
+  {
+    "key": "ctrl+g ctrl+]",
+    "command": "git.stage",
+  },
+  {
+    "key": "ctrl+g ctrl+[",
+    "command": "git.unstage",
   },
   {
     "key": "ctrl+g ctrl+m",

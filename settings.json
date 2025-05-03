@@ -14,10 +14,32 @@
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
   "github.copilot.renameSuggestions.triggerAutomatically": false,
-  "github.copilot.editor.enableAutoCompletions": false,
+  "github.copilot.enable": { "*": false },
   "inlineChat.holdToSpeech": false,
   "inlineChat.lineNaturalLanguageHint": false,
   "accessibility.verbosity.inlineChat": false,
   "accessibility.verbosity.panelChat": false,
-  "workbench.editor.empty.hint": "hidden"
+  "workbench.editor.empty.hint": "hidden",
+  "workbench.startupEditor": "none",
+
+  "cSpell.userWords": [
+    "nodiscard",
+    "springframework"
+  ],
+  "java.compile.nullAnalysis.mode": "automatic",
+  "java.compile.nullAnalysis.nonnullbydefault": [
+    "javax.annotation.ParametersAreNonnullByDefault",
+    "org.eclipse.jdt.annotation.NonNullByDefault",
+    "org.springframework.lang.NonNullApi"
+  ],
+  "editor.rulers": [
+    {
+      "color": "#303030",
+      "column": 80,
+    },
+    {
+      "color": "#404040",
+      "column": 120,
+    },
+  ]
 }
