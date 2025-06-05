@@ -1,72 +1,110 @@
 {
-  "'export' with JSDoc": {
+  "Export with JSDoc": {
     "prefix": "export",
     "body": [
       "/**",
-      "*/ export $0",
+      "*/ export$0",
     ],
+  },
+  "Import": {
+    "prefix": "import",
+    "body": "import { ${0:${CLIPBOARD/[^\\0]*?import\\s*\\(\\s*\"([^\\0]*?)\"\\s*\\)\\s*(?:\\.\\s*(\\w+))?[^\\0]*|[^\\0]*?import\\s*(?:\u007B\\s*([^\\0]*?)\\s*\u007D|\\*\\s*as\\s+\\w+)\\s*from\\s*\"([^\\0]*?)\"[^\\0]*|[^\\0]*/$2$3/}} } from \"${1:${CLIPBOARD/[^\\0]*?import\\s*\\(\\s*\"([^\\0]*?)\"\\s*\\)\\s*(?:\\.\\s*(\\w+))?[^\\0]*|[^\\0]*?import\\s*(?:\u007B\\s*([^\\0]*?)\\s*\u007D|\\*\\s*as\\s+\\w+)\\s*from\\s*\"([^\\0]*?)\"[^\\0]*|[^\\0]*/$1$4/}}\";",
+    "description": "If an import statement has been copied, the contents of it will be pasted with this snippet.",
+  },
+  "Import with JSDoc": {
+    "prefix": "import",
+    "body": [
+      "/**",
+      "@import { ${0:${CLIPBOARD/[^\\0]*?import\\s*\\(\\s*\"([^\\0]*?)\"\\s*\\)\\s*(?:\\.\\s*(\\w+))?[^\\0]*|[^\\0]*?import\\s*(?:\u007B\\s*([^\\0]*?)\\s*\u007D|\\*\\s*as\\s+\\w+)\\s*from\\s*\"([^\\0]*?)\"[^\\0]*|[^\\0]*/$2$3/}} } from \"${1:${CLIPBOARD/[^\\0]*?import\\s*\\(\\s*\"([^\\0]*?)\"\\s*\\)\\s*(?:\\.\\s*(\\w+))?[^\\0]*|[^\\0]*?import\\s*(?:\u007B\\s*([^\\0]*?)\\s*\u007D|\\*\\s*as\\s+\\w+)\\s*from\\s*\"([^\\0]*?)\"[^\\0]*|[^\\0]*/$1$4/}}\"",
+      "*/",
+    ],
+    "description": "If an import statement has been copied, the contents of it will be pasted with this snippet.",
   },
 
   "Public access JSDoc": {
     "prefix": "public",
     "body": [
       "/**",
-      "@public*/ $0",
+      "@public*/$0",
     ],
   },
   "Protected access JSDoc": {
     "prefix": "protected",
     "body": [
       "/**",
-      "@protected*/ $0",
+      "@protected*/$0",
     ],
   },
   "Private access JSDoc": {
     "prefix": "private",
     "body": [
       "/**",
-      "@private*/ $0",
+      "@private*/$0",
     ],
   },
   "Public override JSDoc": {
     "prefix": "override",
     "body": [
       "/**",
-      "@public @override*/ $0",
+      "@public @override*/$0",
     ],
   },
   "Public static JSDoc": {
     "prefix": "static",
     "body": [
       "/**",
-      "@public*/ static $0",
+      "@public*/ static$0",
     ],
   },
-  "Public constructor JSDoc": {
+  "Param JSDoc": {
+    "prefix": "param",
+    "body": [
+      "/**",
+      "@param {${1:*}} ${2:${TM_CURRENT_LINE/[^\\0]*?\\w+\\s*\\(\\s*(\\w+)[^\\0]*|[^\\0]*/$1/}}",
+      "*/$0",
+    ],
+  },
+  "Returns JSDoc": {
+    "prefix": "returns",
+    "body": [
+      "/**",
+      "@returns {${1:*}}",
+      "*/$0",
+    ],
+  },
+  "Public constructor with JSDoc": {
     "prefix": "constructor",
     "body": [
       "/**",
       "@public*/ constructor($1)",
       "{",
-      "    $2",
+      "    $0",
       "}",
     ],
   },
-  "Public get JSDoc": {
+  "Field definition with JSDoc": {
+    "prefix": ["field", "thisvalue", "type"],
+    "body": [
+      "/**",
+      "@type {$2}",
+      "@private*/ this.${1:_value} = $0",
+    ],
+  },
+  "Public get with JSDoc": {
     "prefix": "get",
     "body": [
       "/**",
       "@public*/ get ${1:value}() { return $0 }",
     ],
   },
-  "Public set JSDoc": {
+  "Public set with JSDoc": {
     "prefix": "set",
     "body": [
       "/**",
       "@public*/ set ${1:value}(value) { $0 }",
     ],
   },
-  "Public get/set JSDoc": {
+  "Public get/set with JSDoc": {
     "prefix": "getset",
     "body": [
       "/**",
@@ -77,66 +115,260 @@
       "/**",
       "@public*/ set ${1:value}(value)",
       "{",
-      "    $3",
+      "    $0",
       "}",
     ],
   },
   "Public inline get/set JSDoc": {
-    "prefix": "getset",
+    "prefix": "getsetreturn",
     "body": [
       "/**",
       "@public*/ get ${1:value}() { return ${2:this._$1} }",
       "/**",
-      "@public*/ set ${1:value}(value) { ${3:this._$1} }",
+      "@public*/ set ${1:value}(value) { ${0:this._$1} }",
     ],
   },
-
-  "Inline return": {
-    "prefix": "return",
+  "Class with JSDoc": {
+    "prefix": "class",
     "body": [
-      "{ return $0 }",
+      "/**",
+      "*/ class ${1:_Class}",
+      "{",
+      "    $0",
+      "}",
+    ],
+  },
+  "Function with JSDoc": {
+    "prefix": "function",
+    "body": [
+      "/**",
+      "*/ function ${1:_function}(${2})",
+      "{",
+      "    $0",
+      "}",
+    ],
+  },
+  "Enum with JSDoc": {
+    "prefix": "enum",
+    "body": [
+      "/**",
+      "@enum {typeof ${1:Enum}[keyof typeof ${1:Enum}]}",
+      "*/ const ${1:Enum} = Object.freeze(",
+      "{",
+      "    ${0:value: 0,}",
+      "});",
     ],
   },
 
   "Cast JSDoc": {
     "prefix": "casttype",
     "body": [
-      "/** @type {$1} */($2)",
+      "/** @type {$1} */($0)",
     ],
   },
   "Cast Const JSDoc": {
     "prefix": "castconst",
     "body": [
-      "/** @type {const} */($1)",
+      "/** @type {const} */($0)",
     ],
   },
   "Satisfies JSDoc": {
     "prefix": "satisfies",
     "body": [
-      "/** @satisfies {$1} */($2)",
+      "/** @satisfies {$1} */($0)",
     ],
   },
   "Satisfies Const JSDoc": {
     "prefix": "satisfiesconst",
     "body": [
-      "/** @satisfies {$1} @type {const} */($2)",
+      "/** @satisfies {$1} @type {const} */($0)",
     ],
   },
   "Type Definition JSDoc": {
     "prefix": "typedef",
     "body": [
       "/**",
-      "@typedef {$1} ${2:Type}",
+      "@typedef {$0} ${1:Type}",
       "*/",
     ],
   },
 
-  "For-Of Loop": {
-    "prefix": "foreach",
+  "If Statement": {
+    "prefix": "if",
     "body": [
-      "for (const ${1:element} of ${2:object}) {",
+      "if ($1)",
+      "{",
       "    $0",
       "}",
     ],
   },
+  "Expanded Conditional": {
+    "prefix": "then",
+    "body": [
+      "",
+      "    ? $1",
+      "    : $0",
+    ],
+  },
+  "Switch Statement": {
+    "prefix": "switch",
+    "body": [
+      "switch ($1)",
+      "{",
+      "    ${2:case $0:\n        break;\n    default:\n        break;}",
+      "}",
+    ],
+  },
+  "While Loop": {
+    "prefix": "while",
+    "body": [
+      "while ($1)",
+      "{",
+      "    $0",
+      "}",
+    ],
+  },
+  "Do-While Loop": {
+    "prefix": "dowhile",
+    "body": [
+      "do",
+      "{",
+      "    $0",
+      "}",
+      "while ($1);",
+    ],
+  },
+  "For-Of Loop": {
+    "prefix": ["foreach", "forof"],
+    "body": [
+      "for (const ${1:element} of ${2:array})",
+      "{",
+      "    $0",
+      "}",
+    ],
+  },
+  "For-In Loop": {
+    "prefix": "forin",
+    "body": [
+      "for (const ${1:key} in ${2:object})",
+      "{",
+      "    $0",
+      "}",
+    ],
+  },
+  "For Loop": {
+    "prefix": "for",
+    "body": [
+      "for (let ${1:i} = 0; ${1:i} < ${2:length}; ${1:i}++)",
+      "{",
+      "    $0",
+      "}",
+    ],
+  },
+  "Throw Error": {
+    "prefix": "throw",
+    "body": "throw new ${1|Error,TypeError,SyntaxError,RangeError,ReferenceError|}(\"$0\");",
+  },
+
+  "Custom HTMLElement": {
+    "prefix": [ "classHTMLElement", "customElement" ],
+    "body": [
+      "/**",
+      "*/ export class ${1:CustomClass} extends HTMLElement",
+      "{",
+      "    /**",
+      "    @protected*/ static observedAttributes = /** @type {const} */([]);",
+      "",
+      "    /**",
+      "    @public*/ constructor()",
+      "    {",
+      "        super();$0",
+      "    }",
+      "",
+      "    /**",
+      "    @protected*/ connectedCallback()",
+      "    {",
+      "        ",
+      "    }",
+      "",
+      "    /**",
+      "    @protected*/ disconnectedCallback()",
+      "    {",
+      "        ",
+      "    }",
+      "",
+      "    /**",
+      "    @param {typeof ${1:CustomClass}[\"observedAttributes\"][number]} attributeName",
+      "    @param {string | null} oldValue",
+      "    @param {string | null} newValue",
+      "    @protected*/ attributeChangedCallback(attributeName, oldValue, newValue)",
+      "    {",
+      "        ",
+      "    }",
+      "}",
+      "customElements.define(\"${2:custom-element}\", ${1:CustomClass});",
+    ],
+  },
+  "Event Listener Pattern": {
+    "prefix": "listeners",
+    "body": [
+      "/**",
+      "@export @typedef {{",
+      "    \"${0:type}\": [...parameters: any[]],",
+      "}} ${1:EventMap}",
+      "*/",
+      "",
+      "const _listeners = /** @type {{ [K in keyof ${1:EventMap}]: ((...args: ${1:EventMap}[K]) => void)[] | null }} */(",
+      "{",
+      "    \"${0:type}\": null,",
+      "});",
+      "",
+      "/**",
+      "@template {keyof ${1:EventMap}} const K",
+      "@param {K} type",
+      "@param {(this: unknown, ...args: ${1:EventMap}[K]) => void} listener",
+      "*/ export function add${2:Event}Listener(type, listener)",
+      "{",
+      "    const listenerList = _listeners[type];",
+      "    if (listenerList === null)",
+      "        _listeners[type] = [listener];",
+      "    else",
+      "        listenerList.push(listener);",
+      "}",
+      "",
+      "/**",
+      "@template {keyof ${1:EventMap}} const K",
+      "@param {K} type",
+      "@param {(this: unknown, ...args: ${1:EventMap}[K]) => void} listener",
+      "*/ export function remove${2:Event}Listener(type, listener)",
+      "{",
+      "    const listenerList = _listeners[type];",
+      "    if (listenerList === null)",
+      "        return;",
+      "",
+      "    const index = listenerList.indexOf(listener);",
+      "    if (index !== -1)",
+      "        listenerList.splice(index, 1);",
+      "}",
+      "",
+      "/**",
+      "@template {keyof ${1:EventMap}} const K",
+      "@param {K} type",
+      "@param {${1:EventMap}[K]} parameters",
+      "*/ export function dispatch${2:Event}(type, ...parameters)",
+      "{",
+      "    const listenerList = _listeners[type];",
+      "    if (listenerList === null)",
+      "        return;",
+      "",
+      "    for (const listener of listenerList)",
+      "        listener(...parameters);",
+      "}",
+    ],
+  },
+
+  "Console Log Line": {
+    "prefix": "debug",
+    "body": "\nconsole.log(`${TM_CURRENT_LINE/(?:\\w|(?<=\\w)\\.(?!\\.)(?=\\w))+(?![\\w.]*\\s*\\()(?<!(?=return(?!\\w)|this(?![\\w.])|super(?![\\w.])|if(?!\\w)|else(?!\\w)|for(?!\\w)|switch(?!\\w)|case(?!\\w)|function(?!\\w))[\\w.]*)(?!d?e?b?u?g?$)/$\u007B$0\u007D/gm}`);",
+  }
 }

@@ -2,7 +2,7 @@
   {
     "key": "ctrl+shift+c",
     "command": "-workbench.action.terminal.openNativeConsole",
-    "when": "!terminalFocus"
+    "when": "!terminalFocus",
   },
 
   {
@@ -13,7 +13,50 @@
   {
     "key": "ctrl+r ctrl+r",
     "command": "editor.action.rename",
-    "when": "editorTextFocus && !editorReadonly",
+    "when": "editorTextFocus",
+  },
+  {
+    "key": "ctrl+r ctrl+=",
+    "command": "editor.action.transformToUppercase",
+    "when": "editorTextFocus",
+  },
+  {
+    "key": "ctrl+r ctrl+-",
+    "command": "editor.action.transformToLowercase",
+    "when": "editorTextFocus",
+  },
+
+  {
+    "key": "ctrl+insert ctrl+0",
+    "command": "editor.action.insertSnippet",
+    "args": {
+      "snippet": "$CURSOR_INDEX",
+    },
+    "when": "editorTextFocus && editorHasMultipleSelections",
+  },
+  {
+    "key": "ctrl+insert ctrl+1",
+    "command": "editor.action.insertSnippet",
+    "args": {
+      "snippet": "$CURSOR_NUMBER",
+    },
+    "when": "editorTextFocus && editorHasMultipleSelections",
+  },
+  {
+    "key": "ctrl+insert ctrl+u",
+    "command": "editor.action.insertSnippet",
+    "args": {
+      "snippet": "$UUID",
+    },
+    "when": "editorTextFocus",
+  },
+  {
+    "key": "ctrl+shift+v",
+    "command": "editor.action.insertSnippet",
+    "args": {
+      "snippet": "${0:${CLIPBOARD}}",
+    },
+    "when": "editorTextFocus",
   },
 
   {
@@ -71,6 +114,21 @@
     "command": "editor.action.triggerSuggest",
     "when": "editorTextFocus",
   },
+  {
+    "key": "ctrl+k ctrl+s",
+    "command": "editor.action.setSelectionAnchor",
+    "when": "editorTextFocus",
+  },
+  {
+    "key": "ctrl+k ctrl+k",
+    "command": "editor.action.goToSelectionAnchor",
+    "when": "selectionAnchorSet",
+  },
+  {
+    "key": "shift+ctrl+k shift+ctrl+k",
+    "command": "editor.action.selectFromAnchorToCursor",
+    "when": "editorTextFocus && selectionAnchorSet",
+  },
 
   {
     "key": "ctrl+shift+u",
@@ -94,15 +152,6 @@
     "when": "textInputFocus",
   },
   {
-    "key": "shift+ctrl+up",
-    "command": "runCommands",
-    "args": { // x8
-      "commands": ["cursorUpSelect", "cursorUpSelect", "cursorUpSelect", "cursorUpSelect", "cursorUpSelect", "cursorUpSelect", "cursorUpSelect", "cursorUpSelect"],
-    },
-    "when": "textInputFocus",
-  },
-
-  {
     "key": "ctrl+down",
     "command": "runCommands",
     "args": { // x8
@@ -119,12 +168,14 @@
     "when": "textInputFocus",
   },
   {
-    "key": "shift+ctrl+down",
-    "command": "runCommands",
-    "args": { // x8
-      "commands": ["cursorDownSelect", "cursorDownSelect", "cursorDownSelect", "cursorDownSelect", "cursorDownSelect", "cursorDownSelect", "cursorDownSelect", "cursorDownSelect"],
-    },
-    "when": "textInputFocus",
+    "key": "alt+left",
+    "command": "editor.action.outdentLines",
+    "when": "editorTextFocus",
+  },
+  {
+    "key": "alt+right",
+    "command": "editor.action.indentLines",
+    "when": "editorTextFocus",
   },
 
   {

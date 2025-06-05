@@ -1,19 +1,103 @@
 {
-  "Inline return": {
-    "prefix": "return",
+  "Include Once Pattern": {
+    "prefix": "#ifndef",
+    "isFileTemplate": true,
     "body": [
-      "{ return $0; }",
+      "#ifndef $1",
+      "#define $1",
+      "",
+      "$0",
+      "",
+      "#endif",
     ],
   },
 
-  "Iterator pattern": {
-    "prefix": "const",
+  "Template": {
+    "prefix": "template",
     "body": [
-      "[[nodiscard]] ${1:_T*} begin() { return ${2}; }",
-      "[[nodiscard]] const ${1:_T*} begin() const { return ${2}; }",
-      "",
-      "[[nodiscard]] ${1:_T*} end() { return ${3}; }",
-      "[[nodiscard]] const ${1:_T*} end() const { return ${3}; }",
+      "template<${1:typename _T}>",
+      "$0",
     ],
+  },
+  "If Statement": {
+    "prefix": "if",
+    "body": [
+      "if ($1)",
+      "{",
+      "    $0",
+      "}",
+    ],
+  },
+  "For Loop": {
+    "prefix": "for",
+    "body": [
+      "for (size_t ${1:i} = 0; ${1:i} < ${2:length}; ++${1:i})",
+      "{",
+      "    $0",
+      "}",
+    ],
+  },
+  "Foreach Loop": {
+    "prefix": "foreach",
+    "body": [
+      "for (const auto &${1:item} : ${2:array})",
+      "{",
+      "    $0",
+      "}",
+    ],
+  },
+  "While Loop": {
+    "prefix": "while",
+    "body": [
+      "while ($1)",
+      "{",
+      "    $0",
+      "}",
+    ],
+  },
+  "Do-While Loop": {
+    "prefix": "dowhile",
+    "body": [
+      "do",
+      "{",
+      "    $0",
+      "}",
+      "while ($1);",
+    ],
+  },
+
+  "Iterator Pattern": {
+    "prefix": "beginend",
+    "body": [
+      "[[nodiscard]] ${1:_T *}begin() { return ${2:_begin}; }",
+      "[[nodiscard]] const ${1:_T *}begin() const { return ${2:_begin}; }",
+      "[[nodiscard]] const ${1:_T *}end() const { return ${3:_begin + _length}; }",
+    ],
+  },
+
+  "Fall-Through Attribute": {
+    "prefix": "fallthrough",
+    "body": "[[fallthrough]]",
+    "description": "Marks a switch case able to fall through to the next.",
+  },
+  "Likely Attribute": {
+    "prefix": "likely",
+    "body": "[[likely]]",
+    "description": "Marks a code path as one for the compiler to optimize over the rest.",
+  },
+  "Unlikely Attribute": {
+    "prefix": "unlikely",
+    "body": "[[unlikely]]",
+    "description": "Marks a code path as one for the compiler to optimize as a fallback.",
+  },
+  "No-Discard Attribute": {
+    "prefix": "nodiscard",
+    "body": "[[nodiscard]]",
+    "description": "Marks a method as one that should have it's return type used if called since it has no side effects.",
+  },
+  "No-Return Attribute": {
+    "prefix": "noreturn",
+    "body": "[[noreturn]]",
+    "description": "Marks a method as never returning, if it always throws or intentionally infinite loops.",
   },
 }
