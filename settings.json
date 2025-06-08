@@ -45,4 +45,6 @@
   "C_Cpp.default.cppStandard": "gnu++23",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "C_Cpp.suggestSnippets": false,
+  "javascript.preferences.importModuleSpecifierEnding": "js",
+  "typescript.preferences.importModuleSpecifierEnding": "js",
 }

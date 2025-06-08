@@ -94,6 +94,7 @@
     "prefix": "get",
     "body": [
       "/**",
+      "@returns {$2}",
       "@public*/ get ${1:value}() { return $0 }",
     ],
   },
@@ -108,14 +109,15 @@
     "prefix": "getset",
     "body": [
       "/**",
+      "@returns {$2}",
       "@public*/ get ${1:value}()",
       "{",
-      "    $2",
+      "    $0",
       "}",
       "/**",
       "@public*/ set ${1:value}(value)",
       "{",
-      "    $0",
+      "    ",
       "}",
     ],
   },
@@ -123,6 +125,7 @@
     "prefix": "getsetreturn",
     "body": [
       "/**",
+      "@returns {$2}",
       "@public*/ get ${1:value}() { return ${2:this._$1} }",
       "/**",
       "@public*/ set ${1:value}(value) { ${0:this._$1} }",
@@ -215,7 +218,10 @@
     "body": [
       "switch ($1)",
       "{",
-      "    ${2:case $0:\n        break;\n    default:\n        break;}",
+      "    case $0:",
+      "        break;",
+      "    default:",
+      "        break;",
       "}",
     ],
   },
@@ -277,7 +283,7 @@
       "*/ export class ${1:CustomClass} extends HTMLElement",
       "{",
       "    /**",
-      "    @protected*/ static observedAttributes = /** @type {const} */([]);",
+      "    @protected @readonly*/ static observedAttributes = /** @type {const} */([]);",
       "",
       "    /**",
       "    @public*/ constructor()",
@@ -369,6 +375,6 @@
 
   "Console Log Line": {
     "prefix": "debug",
-    "body": "\nconsole.log(`${TM_CURRENT_LINE/(?:\\w|(?<=\\w)\\.(?!\\.)(?=\\w))+(?![\\w.]*\\s*\\()(?<!(?=return(?!\\w)|this(?![\\w.])|super(?![\\w.])|if(?!\\w)|else(?!\\w)|for(?!\\w)|switch(?!\\w)|case(?!\\w)|function(?!\\w))[\\w.]*)(?!d?e?b?u?g?$)/$\u007B$0\u007D/gm}`);",
+    "body": "\nconsole.log(`${TM_CURRENT_LINE/(?:\\w|(?<=\\w)\\.(?!\\.)(?=\\w))+(?![\\w.]*\\s*\\()(?<!(?=return(?!\\w)|this(?![\\w.])|let(?![\\w.])|var(?![\\w.])|const(?![\\w.])|super(?![\\w.])|if(?!\\w)|else(?!\\w)|for(?!\\w)|switch(?!\\w)|case(?!\\w)|function(?!\\w))[\\w.]*)(?!d?e?b?u?g?$)/$\u007B$0\u007D/gm}`);",
   }
 }
