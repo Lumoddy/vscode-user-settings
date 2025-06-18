@@ -16,12 +16,12 @@
     "when": "editorTextFocus",
   },
   {
-    "key": "ctrl+r ctrl+=",
+    "key": "ctrl+r ctrl+u",
     "command": "editor.action.transformToUppercase",
     "when": "editorTextFocus",
   },
   {
-    "key": "ctrl+r ctrl+-",
+    "key": "ctrl+r ctrl+l",
     "command": "editor.action.transformToLowercase",
     "when": "editorTextFocus",
   },

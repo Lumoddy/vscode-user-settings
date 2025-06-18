@@ -95,7 +95,7 @@
     "body": [
       "/**",
       "@returns {$2}",
-      "@public*/ get ${1:value}() { return $0 }",
+      "@public @readonly*/ get ${1:value}() { return $0 }",
     ],
   },
   "Public set with JSDoc": {
@@ -271,6 +271,15 @@
       "}",
     ],
   },
+  "For-Await Loop": {
+    "prefix": "forawait",
+    "body": [
+      "for await (const ${1:element} in ${2:object})",
+      "{",
+      "    $0",
+      "}",
+    ],
+  },
   "Throw Error": {
     "prefix": "throw",
     "body": "throw new ${1|Error,TypeError,SyntaxError,RangeError,ReferenceError|}(\"$0\");",
@@ -336,7 +345,7 @@
       "*/ export function add${2:Event}Listener(type, listener)",
       "{",
       "    const listenerList = _listeners[type];",
-      "    if (listenerList === null)",
+      "    if (listenerList === null) // @ts-ignore",
       "        _listeners[type] = [listener];",
       "    else",
       "        listenerList.push(listener);",
