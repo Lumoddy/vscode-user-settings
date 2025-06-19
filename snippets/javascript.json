@@ -205,14 +205,6 @@
       "}",
     ],
   },
-  "Expanded Conditional": {
-    "prefix": "then",
-    "body": [
-      "",
-      "    ? $1",
-      "    : $0",
-    ],
-  },
   "Switch Statement": {
     "prefix": "switch",
     "body": [
