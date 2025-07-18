@@ -1,4 +1,6 @@
 [
+  // see: https://code.visualstudio.com/docs/editing/userdefinedsnippets#_variables
+  
   {
     "key": "ctrl+shift+c",
     "command": "-workbench.action.terminal.openNativeConsole",
@@ -51,10 +53,58 @@
     "when": "editorTextFocus",
   },
   {
+    "key": "ctrl+insert ctrl+'",
+    "command": "editor.action.insertSnippet",
+    "args": {
+      "snippet": "' +\n${TM_CURRENT_LINE/.*(?<=([$@f]*))'.*(?:(?<!\\\\)|(?:\\\\\\\\)+)'.*/$1/}'",
+    },
+    "when": "editorTextFocus",
+  },
+  {
+    "key": "ctrl+insert ctrl+shift+'",
+    "command": "editor.action.insertSnippet",
+    "args": {
+      "snippet": "\" +\n${TM_CURRENT_LINE/.*(?<=([$@f]*))\".*(?:(?<!\\\\)|(?:\\\\\\\\)+)\".*/$1/}\"",
+    },
+    "when": "editorTextFocus",
+  },
+  {
+    "key": "ctrl+insert ctrl+`",
+    "command": "editor.action.insertSnippet",
+    "args": {
+      "snippet": "\n",
+    },
+    "when": "editorTextFocus",
+  },
+  {
+    "key": "shift+,",
+    "command": "editor.action.insertSnippet",
+    "args": {
+      "snippet": "<${0:$TM_SELECTED_TEXT}>",
+    },
+    "when": "editor.hasSelection",
+  },
+  {
+    "key": "shift+.",
+    "command": "editor.action.insertSnippet",
+    "args": {
+      "snippet": "<$1>${0:$TM_SELECTED_TEXT}</$1>",
+    },
+    "when": "editor.hasSelection",
+  },
+  {
+    "key": "shift+enter",
+    "command": "editor.action.insertSnippet",
+    "args": {
+      "snippet": "\n${0:$TM_SELECTED_TEXT}\n",
+    },
+    "when": "editor.hasSelection",
+  },
+  {
     "key": "ctrl+shift+v",
     "command": "editor.action.insertSnippet",
     "args": {
-      "snippet": "${0:${CLIPBOARD}}",
+      "snippet": "${0:$CLIPBOARD}",
     },
     "when": "editorTextFocus",
   },
@@ -83,6 +133,11 @@
     "key": "ctrl+w",
     "command": "workbench.action.togglePanel",
     "when": "panelFocus",
+  },
+  {
+    "key": "ctrl+w",
+    "command": "closeReferenceSearch",
+    "when": "editorTextFocus && referenceSearchVisible && !config.editor.stablePeek || referenceSearchVisible && !config.editor.stablePeek && !inputFocus"
   },
 
   {
@@ -134,12 +189,34 @@
     "key": "ctrl+shift+u",
     "command": "workbench.panel.chat",
   },
+  {
+    "key": "ctrl+alt+u",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "inlineChat.start",
+        {
+          "command": "editor.action.insertSnippet",
+          "args": { "snippet": "/generate" },
+        },
+        "workbench.action.chat.submit",
+      ],
+    },
+  },
 
   {
     "key": "ctrl+up",
     "command": "runCommands",
     "args": { // x8
-      "commands": ["cursorUp", "cursorUp", "cursorUp", "cursorUp", "cursorUp", "cursorUp", "cursorUp", "cursorUp"],
+      "commands": [
+        "cursorUp",
+        "cursorUp",
+        "cursorUp",
+        "cursorUp",
+        "cursorUp",
+        "cursorUp",
+        "cursorUp",
+        "cursorUp"],
     },
     "when": "textInputFocus",
   },
@@ -147,7 +224,15 @@
     "key": "shift+ctrl+up",
     "command": "runCommands",
     "args": { // x8
-      "commands": ["cursorUpSelect", "cursorUpSelect", "cursorUpSelect", "cursorUpSelect", "cursorUpSelect", "cursorUpSelect", "cursorUpSelect", "cursorUpSelect"],
+      "commands": [
+        "cursorUpSelect",
+        "cursorUpSelect",
+        "cursorUpSelect",
+        "cursorUpSelect",
+        "cursorUpSelect",
+        "cursorUpSelect",
+        "cursorUpSelect",
+        "cursorUpSelect"],
     },
     "when": "textInputFocus",
   },
@@ -155,7 +240,15 @@
     "key": "ctrl+down",
     "command": "runCommands",
     "args": { // x8
-      "commands": ["cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown", "cursorDown"],
+      "commands": [
+        "cursorDown",
+        "cursorDown",
+        "cursorDown",
+        "cursorDown",
+        "cursorDown",
+        "cursorDown",
+        "cursorDown",
+        "cursorDown"],
     },
     "when": "textInputFocus",
   },
@@ -163,9 +256,113 @@
     "key": "shift+ctrl+down",
     "command": "runCommands",
     "args": { // x8
-      "commands": ["cursorDownSelect", "cursorDownSelect", "cursorDownSelect", "cursorDownSelect", "cursorDownSelect", "cursorDownSelect", "cursorDownSelect", "cursorDownSelect"],
+      "commands": [
+        "cursorDownSelect",
+        "cursorDownSelect",
+        "cursorDownSelect",
+        "cursorDownSelect",
+        "cursorDownSelect",
+        "cursorDownSelect",
+        "cursorDownSelect",
+        "cursorDownSelect"],
     },
     "when": "textInputFocus",
+  },
+  {
+    "key": "ctrl+up",
+    "command": "runCommands",
+    "args": { // x8
+      "commands": [
+        "selectPrevSuggestion",
+        "selectPrevSuggestion",
+        "selectPrevSuggestion",
+        "selectPrevSuggestion",
+        "selectPrevSuggestion",
+        "selectPrevSuggestion",
+        "selectPrevSuggestion",
+        "selectPrevSuggestion"],
+    },
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion",
+  },
+  {
+    "key": "ctrl+down",
+    "command": "runCommands",
+    "args": { // x8
+      "commands": [
+        "selectNextSuggestion",
+        "selectNextSuggestion",
+        "selectNextSuggestion",
+        "selectNextSuggestion",
+        "selectNextSuggestion",
+        "selectNextSuggestion",
+        "selectNextSuggestion",
+        "selectNextSuggestion"],
+    },
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion",
+  },
+  {
+    "key": "ctrl+up",
+    "command": "runCommands",
+    "args": { // x8
+      "commands": [
+        "selectPrevCodeAction",
+        "selectPrevCodeAction",
+        "selectPrevCodeAction",
+        "selectPrevCodeAction",
+        "selectPrevCodeAction",
+        "selectPrevCodeAction",
+        "selectPrevCodeAction",
+        "selectPrevCodeAction"],
+    },
+    "when": "codeActionMenuVisible",
+  },
+  {
+    "key": "ctrl+down",
+    "command": "runCommands",
+    "args": { // x8
+      "commands": [
+        "selectNextCodeAction",
+        "selectNextCodeAction",
+        "selectNextCodeAction",
+        "selectNextCodeAction",
+        "selectNextCodeAction",
+        "selectNextCodeAction",
+        "selectNextCodeAction",
+        "selectNextCodeAction"],
+    },
+    "when": "codeActionMenuVisible",
+  },
+  {
+    "key": "ctrl+up",
+    "command": "runCommands",
+    "args": { // x8
+      "commands": [
+        "list.scrollUp",
+        "list.scrollUp",
+        "list.scrollUp",
+        "list.scrollUp",
+        "list.scrollUp",
+        "list.scrollUp",
+        "list.scrollUp",
+        "list.scrollUp"],
+    },
+    "when": "listFocus && !inputFocus && !treestickyScrollFocused && listScrollAtBoundary != 'both' && listScrollAtBoundary != 'top'",
+  },
+  {
+    "key": "ctrl+down",
+    "command": "runCommands",
+    "args": { // x8
+      "commands": [
+        "list.scrollDown",
+        "list.scrollDown",
+        "list.scrollDown",
+        "list.scrollDown",
+        "list.scrollDown",
+        "list.scrollDown",
+        "list.scrollDown",
+        "list.scrollDown"],
+    },
+    "when": "listFocus && !inputFocus && !treestickyScrollFocused && listScrollAtBoundary != 'both' && listScrollAtBoundary != 'top'",
   },
   {
     "key": "alt+left",

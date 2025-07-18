@@ -1,0 +1,93 @@
+{
+  "Import": {
+    "prefix": "import",
+    "body": "import { ${0:${CLIPBOARD/[^\\0]*?import\\s*\\(\\s*\"([^\\0]*?)\"\\s*\\)\\s*(?:\\.\\s*(\\w+))?[^\\0]*|[^\\0]*?import\\s*(?:\u007B\\s*([^\\0]*?)\\s*\u007D|\\*\\s*as\\s+\\w+)\\s*from\\s*\"([^\\0]*?)\"[^\\0]*|[^\\0]*/$2$3/}} } from \"${1:${CLIPBOARD/[^\\0]*?import\\s*\\(\\s*\"([^\\0]*?)\"\\s*\\)\\s*(?:\\.\\s*(\\w+))?[^\\0]*|[^\\0]*?import\\s*(?:\u007B\\s*([^\\0]*?)\\s*\u007D|\\*\\s*as\\s+\\w+)\\s*from\\s*\"([^\\0]*?)\"[^\\0]*|[^\\0]*/$1$4/}}\";",
+    "description": "If an import statement has been copied, the contents of it will be pasted with this snippet.",
+  },
+
+  "If Statement": {
+    "prefix": "if",
+    "body": [
+      "if ($1)",
+      "{",
+      "    $0",
+      "}",
+    ],
+  },
+  "Switch Statement": {
+    "prefix": "switch",
+    "body": [
+      "switch ($1)",
+      "{",
+      "    case $0:",
+      "        break;",
+      "    default:",
+      "        break;",
+      "}",
+    ],
+  },
+  "While Loop": {
+    "prefix": "while",
+    "body": [
+      "while ($1)",
+      "{",
+      "    $0",
+      "}",
+    ],
+  },
+  "Do-While Loop": {
+    "prefix": "dowhile",
+    "body": [
+      "do",
+      "{",
+      "    $0",
+      "}",
+      "while ($1);",
+    ],
+  },
+  "For-Of Loop": {
+    "prefix": ["foreach", "forof"],
+    "body": [
+      "for (const ${1:element} of ${2:array})",
+      "{",
+      "    $0",
+      "}",
+    ],
+  },
+  "For-In Loop": {
+    "prefix": "forin",
+    "body": [
+      "for (const ${1:key} in ${2:object})",
+      "{",
+      "    $0",
+      "}",
+    ],
+  },
+  "For Loop": {
+    "prefix": "for",
+    "body": [
+      "for (let ${1:i} = 0; ${1:i} < ${2:length}; ++${1:i})",
+      "{",
+      "    $0",
+      "}",
+    ],
+  },
+  "For-Await Loop": {
+    "prefix": "forawait",
+    "body": [
+      "for await (const ${1:element} in ${2:object})",
+      "{",
+      "    $0",
+      "}",
+    ],
+  },
+  "Throw Error": {
+    "prefix": "throw",
+    "body": "throw new ${1|Error,TypeError,SyntaxError,RangeError,ReferenceError|}(\"$0\");",
+  },
+
+  "Console Log Line": {
+    "prefix": "debug",
+    "body": "\nconsole.log(`${TM_CURRENT_LINE/(?:\\w|(?<=\\w)\\.(?!\\.)(?=\\w))+(?![\\w.]*\\s*\\()(?<!(?=return(?!\\w)|this(?![\\w.])|let(?![\\w.])|var(?![\\w.])|const(?![\\w.])|super(?![\\w.])|if(?!\\w)|else(?!\\w)|for(?!\\w)|switch(?!\\w)|case(?!\\w)|function(?!\\w))[\\w.]*)(?!d?e?b?u?g?$)/$\u007B$0\u007D/gm}`);",
+  }
+}

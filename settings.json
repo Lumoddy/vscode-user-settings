@@ -14,7 +14,13 @@
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
   "github.copilot.renameSuggestions.triggerAutomatically": false,
-  "github.copilot.enable": { "*": false },
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "jsonc": false
+  },
   "inlineChat.holdToSpeech": false,
   "inlineChat.lineNaturalLanguageHint": false,
   "accessibility.verbosity.inlineChat": false,
@@ -23,11 +29,24 @@
   "workbench.startupEditor": "none",
 
   "cSpell.userWords": [
+    "accessibilities",
+    "Behaviour",
+    "Dont",
+    "firestore",
     "Jaydan",
     "Lumoddy",
+    "Mathf",
+    "nameof",
     "nodiscard",
     "noreturn",
-    "springframework"
+    "Pressable",
+    "Rects",
+    "resizer",
+    "Rigidbody",
+    "springframework",
+    "textonly",
+    "Toggleable",
+    "unshifted"
   ],
 
   "java.compile.nullAnalysis.mode": "automatic",
@@ -47,4 +66,16 @@
   "C_Cpp.suggestSnippets": false,
   "javascript.preferences.importModuleSpecifierEnding": "js",
   "typescript.preferences.importModuleSpecifierEnding": "js",
+  "editor.minimap.showSlider": "always",
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "variable.parameter",
+        "settings": {
+          "foreground": "#4FC1FF",
+        },
+      },
+    ],
+  },
+  "terminal.integrated.persistentSessionReviveProcess": "onExitAndWindowClose",
 }

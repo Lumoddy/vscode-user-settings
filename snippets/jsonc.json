@@ -1,0 +1,17 @@
+{
+  "My JS Config Settings": {
+    "prefix": "myjsconfig",
+    "body": [
+      "\"compilerOptions\": {",
+      "  \"checkJs\": true,",
+      "  \"strictNullChecks\": true,",
+      "  \"noImplicitAny\": true,",
+      "  \"noImplicitOverride\": true,",
+      "  \"noImplicitReturns\": true,",
+      "  \"noImplicitThis\": true,",
+      "  \"target\": \"ES2024\",",
+      "  \"module\": \"CommonJS\",",
+      "},",
+    ],
+  },
+}
