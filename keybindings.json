@@ -34,7 +34,7 @@
     "args": {
       "snippet": "$CURSOR_INDEX",
     },
-    "when": "editorTextFocus && editorHasMultipleSelections",
+    "when": "editorTextFocus",
   },
   {
     "key": "ctrl+insert ctrl+1",
@@ -42,7 +42,7 @@
     "args": {
       "snippet": "$CURSOR_NUMBER",
     },
-    "when": "editorTextFocus && editorHasMultipleSelections",
+    "when": "editorTextFocus",
   },
   {
     "key": "ctrl+insert ctrl+u",
@@ -82,7 +82,7 @@
     "args": {
       "snippet": "<${0:$TM_SELECTED_TEXT}>",
     },
-    "when": "editor.hasSelection",
+    "when": "editorTextFocus && editor.hasSelection",
   },
   {
     "key": "shift+.",
@@ -90,7 +90,7 @@
     "args": {
       "snippet": "<$1>${0:$TM_SELECTED_TEXT}</$1>",
     },
-    "when": "editor.hasSelection",
+    "when": "editorTextFocus && editor.hasSelection",
   },
   {
     "key": "shift+enter",
@@ -98,7 +98,15 @@
     "args": {
       "snippet": "\n${0:$TM_SELECTED_TEXT}\n",
     },
-    "when": "editor.hasSelection",
+    "when": "editorTextFocus && editor.hasSelection",
+  },
+  {
+    "key": "ctrl+shift+/",
+    "command": "editor.action.insertSnippet",
+    "args": {
+      "snippet": "\n\t? $1\n\t: $0",
+    },
+    "when": "editorTextFocus",
   },
   {
     "key": "ctrl+shift+v",
