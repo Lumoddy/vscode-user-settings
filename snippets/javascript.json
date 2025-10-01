@@ -145,7 +145,7 @@
     "prefix": "function",
     "body": [
       "/**",
-      "${1|@public,@protected,@private|}*/ function ${2:name}(${3})",
+      "${1|*/ export,*/|} function ${2:name}(${3})",
       "{",
       "\t$0",
       "}",

@@ -32,6 +32,7 @@
     "Activatable",
     "baudrate",
     "Behaviour",
+    "chrono",
     "Deque",
     "Dont",
     "firestore",
@@ -46,6 +47,7 @@
     "nameof",
     "nodiscard",
     "noreturn",
+    "oklch",
     "Pressable",
     "Rects",
     "repr",
@@ -102,4 +104,6 @@
   "rust-analyzer.imports.granularity.group": "module",
   "rust-analyzer.imports.prefix": "plain",
   "editor.minimap.renderCharacters": false,
+  "swift.warnAboutSymlinkCreation": false,
+  "haskell.manageHLS": "GHCup",
 }
