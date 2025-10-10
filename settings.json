@@ -1,5 +1,4 @@
 {
-  "workbench.colorTheme": "Default Dark Modern",
   "redhat.telemetry.enabled": false,
   "php.debug.executablePath": "",
   "editor.renderWhitespace": "trailing",
@@ -79,15 +78,18 @@
   "javascript.preferences.importModuleSpecifierEnding": "js",
   "typescript.preferences.importModuleSpecifierEnding": "js",
   "editor.minimap.showSlider": "always",
-  "editor.tokenColorCustomizations": {
-    "textMateRules": [
-      {
-        "scope": "variable.parameter",
-        "settings": {
-          "foreground": "#4FC1FF",
-        },
+  "editor.semanticTokenColorCustomizations": {
+    "rules": {
+      "parameter:javascript": {
+        "underline": true,
       },
-    ],
+      "parameter:csharp": {
+        "foreground": "#4FC1FF",
+      },
+    },
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [],
   },
   "terminal.integrated.persistentSessionReviveProcess": "onExitAndWindowClose",
   "scm.diffDecorations": "gutter",
