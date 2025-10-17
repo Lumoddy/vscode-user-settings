@@ -8,14 +8,14 @@
   },
   "Import": {
     "prefix": "import",
-    "body": "import { ${0:${CLIPBOARD/[^\\0]*?import\\s*\\(\\s*\"([^\\0]*?)\"\\s*\\)\\s*(?:\\.\\s*(\\w+))?[^\\0]*|[^\\0]*?import\\s*(?:\u007B\\s*([^\\0]*?)\\s*\u007D|\\*\\s*as\\s+\\w+)\\s*from\\s*\"([^\\0]*?)\"[^\\0]*|[^\\0]*/$2$3/}} } from \"${1:${CLIPBOARD/[^\\0]*?import\\s*\\(\\s*\"([^\\0]*?)\"\\s*\\)\\s*(?:\\.\\s*(\\w+))?[^\\0]*|[^\\0]*?import\\s*(?:\u007B\\s*([^\\0]*?)\\s*\u007D|\\*\\s*as\\s+\\w+)\\s*from\\s*\"([^\\0]*?)\"[^\\0]*|[^\\0]*/$1$4/}}\";",
+    "body": "import { ${0:${CLIPBOARD/[^\\0]*?import\\s*\\(\\s*\"([^\\0]*?)\"\\s*\\)\\s*(?:\\.\\s*(\\w+))?[^\\0]*|[^\\0]*?import\\s*(?:{\\s*([^\\0]*?)\\s*\\}|\\*\\s*as\\s+\\w+)\\s*from\\s*\"([^\\0]*?)\"[^\\0]*|[^\\0]*/$2$3/}} } from \"${1:${CLIPBOARD/[^\\0]*?import\\s*\\(\\s*\"([^\\0]*?)\"\\s*\\)\\s*(?:\\.\\s*(\\w+))?[^\\0]*|[^\\0]*?import\\s*(?:{\\s*([^\\0]*?)\\s*\\}|\\*\\s*as\\s+\\w+)\\s*from\\s*\"([^\\0]*?)\"[^\\0]*|[^\\0]*/$1$4/}}\";",
     "description": "If an import statement has been copied, the contents of it will be pasted with this snippet.",
   },
   "Import with JSDoc": {
     "prefix": "import",
     "body": [
       "/**",
-      "@import { ${0:${CLIPBOARD/[^\\0]*?import\\s*\\(\\s*\"([^\\0]*?)\"\\s*\\)\\s*(?:\\.\\s*(\\w+))?[^\\0]*|[^\\0]*?import\\s*(?:\u007B\\s*([^\\0]*?)\\s*\u007D|\\*\\s*as\\s+\\w+)\\s*from\\s*\"([^\\0]*?)\"[^\\0]*|[^\\0]*/$2$3/}} } from \"${1:${CLIPBOARD/[^\\0]*?import\\s*\\(\\s*\"([^\\0]*?)\"\\s*\\)\\s*(?:\\.\\s*(\\w+))?[^\\0]*|[^\\0]*?import\\s*(?:\u007B\\s*([^\\0]*?)\\s*\u007D|\\*\\s*as\\s+\\w+)\\s*from\\s*\"([^\\0]*?)\"[^\\0]*|[^\\0]*/$1$4/}}\"",
+      "@import { ${0:${CLIPBOARD/[^\\0]*?import\\s*\\(\\s*\"([^\\0]*?)\"\\s*\\)\\s*(?:\\.\\s*(\\w+))?[^\\0]*|[^\\0]*?import\\s*(?:{\\s*([^\\0]*?)\\s*\\}|\\*\\s*as\\s+\\w+)\\s*from\\s*\"([^\\0]*?)\"[^\\0]*|[^\\0]*/$2$3/}} } from \"${1:${CLIPBOARD/[^\\0]*?import\\s*\\(\\s*\"([^\\0]*?)\"\\s*\\)\\s*(?:\\.\\s*(\\w+))?[^\\0]*|[^\\0]*?import\\s*(?:{\\s*([^\\0]*?)\\s*\\}|\\*\\s*as\\s+\\w+)\\s*from\\s*\"([^\\0]*?)\"[^\\0]*|[^\\0]*/$1$4/}}\"",
       "*/",
     ],
     "description": "If an import statement has been copied, the contents of it will be pasted with this snippet.",
@@ -312,7 +312,7 @@
       "\t/**",
       "\t@public*/ constructor()",
       "\t{",
-      "\t\tsuper();$0",
+      "\t\tsuper();${0:\n\n\t\t/**\n\t\t@type {ShadowRoot\\}\n\t\t@private*/ this._shadowRoot = this.attachShadow({ mode: \"open\" \\});\n\t\tthis._shadowRoot.appendChild(_template.content.cloneNode(true));}",
       "\t}",
       "",
       "\t/**",
@@ -329,8 +329,8 @@
       "",
       "\t/**",
       "\t@param {typeof ${1:CustomClass}[\"observedAttributes\"][number]} attributeName",
-      "\t@param {string | null} oldValue",
-      "\t@param {string | null} newValue",
+      "\t@param {string?} oldValue",
+      "\t@param {string?} newValue",
       "\t@protected*/ attributeChangedCallback(attributeName, oldValue, newValue)",
       "\t{",
       "\t\t",
@@ -396,6 +396,6 @@
 
   "Console Log Line": {
     "prefix": "debug",
-    "body": "\nconsole.log(`${TM_CURRENT_LINE/(?:\\w|(?<=\\w)\\.(?!\\.)(?=\\w))+(?![\\w.]*\\s*\\()(?<!(?=return(?!\\w)|this(?![\\w.])|let(?![\\w.])|var(?![\\w.])|const(?![\\w.])|super(?![\\w.])|if(?!\\w)|else(?!\\w)|for(?!\\w)|switch(?!\\w)|case(?!\\w)|function(?!\\w))[\\w.]*)(?!d?e?b?u?g?$)/$\u007B$0\u007D/gm}`);",
+    "body": "\nconsole.log(`${TM_CURRENT_LINE/(?:\\w|(?<=\\w)\\.(?!\\.)(?=\\w))+(?![\\w.]*\\s*\\()(?<!(?=return(?!\\w)|this(?![\\w.])|let(?![\\w.])|var(?![\\w.])|const(?![\\w.])|super(?![\\w.])|if(?!\\w)|else(?!\\w)|for(?!\\w)|switch(?!\\w)|case(?!\\w)|function(?!\\w))[\\w.]*)(?!d?e?b?u?g?$)/${$0\\}/gm}`);",
   }
 }

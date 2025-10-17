@@ -29,9 +29,11 @@
   "cSpell.userWords": [
     "accessibilities",
     "Activatable",
+    "Automations",
     "baudrate",
     "Behaviour",
     "chrono",
+    "contenteditable",
     "Deque",
     "Dont",
     "firestore",
@@ -83,13 +85,29 @@
       "parameter:javascript": {
         "underline": true,
       },
+      "parameter:typescript": {
+        "underline": true,
+      },
       "parameter:csharp": {
         "foreground": "#4FC1FF",
       },
     },
   },
   "editor.tokenColorCustomizations": {
-    "textMateRules": [],
+    "textMateRules": [
+      {
+        "scope": "variable.language.this.js",
+        "settings": {
+          "fontStyle": "underline",
+        },
+      },
+      {
+        "scope": "variable.language.this.ts",
+        "settings": {
+          "fontStyle": "underline",
+        },
+      },
+    ],
   },
   "terminal.integrated.persistentSessionReviveProcess": "onExitAndWindowClose",
   "scm.diffDecorations": "gutter",
