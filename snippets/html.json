@@ -11,4 +11,9 @@
       "<script src=\"${1:/script.js}\"></script>",
     ],
   },
+
+  "PHP Tag": {
+    "prefix": "php",
+    "body": "<?php $0 ?>",
+  },
 }

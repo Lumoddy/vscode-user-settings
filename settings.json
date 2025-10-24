@@ -37,6 +37,7 @@
     "Deque",
     "Dont",
     "firestore",
+    "heapless",
     "importmap",
     "Interactable",
     "Jaydan",
@@ -126,4 +127,9 @@
   "editor.minimap.renderCharacters": false,
   "swift.warnAboutSymlinkCreation": false,
   "haskell.manageHLS": "GHCup",
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "diffEditor.ignoreTrimWhitespace": true,
+  "files.associations": {
+    "*.php": "php"
+  },
 }

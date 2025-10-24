@@ -1,4 +1,12 @@
 {
+  "JSDoc Prefix": {
+    "prefix": "pre",
+    "body": [
+      "/**",
+      "*/$0",
+    ],
+  },
+
   "Export with JSDoc": {
     "prefix": "export",
     "body": [
