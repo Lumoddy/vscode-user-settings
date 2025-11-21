@@ -53,6 +53,30 @@
     "when": "editorTextFocus",
   },
   {
+    "key": "ctrl+insert ctrl+t",
+    "command": "editor.action.insertSnippet",
+    "args": {
+      "snippet": "$LINE_COMMENT TODO: ",
+    },
+    "when": "editorTextFocus",
+  },
+  {
+    "key": "ctrl+insert ctrl+f",
+    "command": "editor.action.insertSnippet",
+    "args": {
+      "snippet": "$LINE_COMMENT FIX: ",
+    },
+    "when": "editorTextFocus",
+  },
+  {
+    "key": "ctrl+insert ctrl+s",
+    "command": "editor.action.insertSnippet",
+    "args": {
+      "snippet": "$LINE_COMMENT SAFETY: ",
+    },
+    "when": "editorTextFocus",
+  },
+  {
     "key": "shift+,",
     "command": "editor.action.insertSnippet",
     "args": {
@@ -65,6 +89,14 @@
     "command": "editor.action.insertSnippet",
     "args": {
       "snippet": "<$1>${0:$TM_SELECTED_TEXT}</$1>",
+    },
+    "when": "editorTextFocus && editor.hasSelection",
+  },
+  {
+    "key": "shift+\\",
+    "command": "editor.action.insertSnippet",
+    "args": {
+      "snippet": "|${0:$TM_SELECTED_TEXT}|",
     },
     "when": "editorTextFocus && editor.hasSelection",
   },
@@ -83,14 +115,6 @@
       "snippet": " ${0:$TM_SELECTED_TEXT} ",
     },
     "when": "editorTextFocus && editor.hasSelection",
-  },
-  {
-    "key": "ctrl+shift+/",
-    "command": "editor.action.insertSnippet",
-    "args": {
-      "snippet": "\n\t? $1\n\t: $0",
-    },
-    "when": "editorTextFocus",
   },
   {
     "key": "ctrl+shift+v",
@@ -182,18 +206,9 @@
     "command": "workbench.panel.chat",
   },
   {
-    "key": "ctrl+alt+u",
-    "command": "runCommands",
-    "args": {
-      "commands": [
-        "inlineChat.start",
-        {
-          "command": "editor.action.insertSnippet",
-          "args": { "snippet": "/generate" },
-        },
-        "workbench.action.chat.submit",
-      ],
-    },
+    "key": "ctrl+,",
+    "command": "editor.action.inlineSuggest.trigger",
+    "when": "editorTextFocus",
   },
 
   {
@@ -365,6 +380,30 @@
     "key": "alt+right",
     "command": "editor.action.indentLines",
     "when": "editorTextFocus",
+  },
+  {
+    "key": "ctrl+alt+left",
+    "command": "runCommands",
+    "args": { // x8
+      "commands": [ // Requires 'Select By' by rioj7
+        "cursorLeftSelect",
+        "selectby.swapActive",
+        "cursorRightSelect",
+        "selectby.swapActive"],
+    },
+    "when": "textInputFocus",
+  },
+  {
+    "key": "ctrl+alt+right",
+    "command": "runCommands",
+    "args": { // x8
+      "commands": [
+        "cursorRightSelect",
+        "selectby.swapActive",
+        "cursorLeftSelect",
+        "selectby.swapActive"],
+    },
+    "when": "textInputFocus",
   },
 
   {

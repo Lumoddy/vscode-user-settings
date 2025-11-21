@@ -17,7 +17,8 @@
     "plaintext": false,
     "markdown": false,
     "scminput": false,
-    "jsonc": false
+    "jsonc": false,
+    "php": true
   },
   "inlineChat.holdToSpeech": false,
   "inlineChat.lineNaturalLanguageHint": false,
@@ -28,7 +29,6 @@
 
   "cSpell.userWords": [
     "accessibilities",
-    "Activatable",
     "Automations",
     "baudrate",
     "Behaviour",
@@ -40,7 +40,6 @@
     "heapless",
     "importmap",
     "Interactable",
-    "Jaydan",
     "Keymap",
     "Lumoddy",
     "Mathf",
@@ -55,8 +54,10 @@
     "repr",
     "resizer",
     "Rigidbody",
+    "smallvec",
     "springframework",
     "Stringifier",
+    "syscalls",
     "textonly",
     "Toggleable",
     "uninit",
@@ -132,4 +133,5 @@
   "files.associations": {
     "*.php": "php"
   },
+  "github.copilot.nextEditSuggestions.enabled": true,
 }

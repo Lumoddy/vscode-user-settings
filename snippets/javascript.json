@@ -305,7 +305,7 @@
   },
   "Throw Error": {
     "prefix": "throw",
-    "body": "throw new ${1|Error,TypeError,SyntaxError,RangeError,ReferenceError|}(\"$0\");",
+    "body": "throw new ${1|Error,TypeError,SyntaxError,RangeError,ReferenceError|}(`$0`);",
   },
 
   "Custom HTMLElement": {
