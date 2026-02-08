@@ -18,7 +18,7 @@
     "markdown": false,
     "scminput": false,
     "jsonc": false,
-    "php": true
+    "php": false
   },
   "inlineChat.holdToSpeech": false,
   "inlineChat.lineNaturalLanguageHint": false,
@@ -43,7 +43,6 @@
     "indexmap",
     "Interactable",
     "keybind",
-    "oneshot",
     "Keymap",
     "Lumoddy",
     "Mathf",
@@ -53,6 +52,7 @@
     "nodiscard",
     "noreturn",
     "oklch",
+    "oneshot",
     "Pressable",
     "Rects",
     "repr",
@@ -64,8 +64,11 @@
     "syscalls",
     "textonly",
     "Toggleable",
+    "Undoable",
     "uninit",
-    "unshifted"
+    "unshifted",
+    "vtable",
+    "XAMPP"
   ],
 
   "java.compile.nullAnalysis.mode": "automatic",
@@ -138,4 +141,5 @@
     "*.php": "php"
   },
   "github.copilot.nextEditSuggestions.enabled": true,
+  "php.validate.executablePath": "/opt/lampp/bin/php",
 }

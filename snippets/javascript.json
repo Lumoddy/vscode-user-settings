@@ -405,5 +405,10 @@
   "Console Log Line": {
     "prefix": "debug",
     "body": "\nconsole.log(`${TM_CURRENT_LINE/(?:\\w|(?<=\\w)\\.(?!\\.)(?=\\w))+(?![\\w.]*\\s*\\()(?<!(?=return(?!\\w)|this(?![\\w.])|let(?![\\w.])|var(?![\\w.])|const(?![\\w.])|super(?![\\w.])|if(?!\\w)|else(?!\\w)|for(?!\\w)|switch(?!\\w)|case(?!\\w)|function(?!\\w))[\\w.]*)(?!d?e?b?u?g?$)/${$0\\}/gm}`);",
-  }
+  },
+
+  "PHP Tag": {
+    "prefix": "php",
+    "body": "<?php $0 ?>",
+  },
 }

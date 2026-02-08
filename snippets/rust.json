@@ -1,0 +1,16 @@
+{
+  "Test Module": {
+    "prefix": "tests",
+    "body": [
+      "#[cfg(test)]",
+      "mod tests",
+      "{",
+      "\t#[test]",
+      "\tfn ${1:test}()",
+      "\t{",
+      "\t\t$0",
+      "\t}",
+      "}",
+    ]
+  },
+}

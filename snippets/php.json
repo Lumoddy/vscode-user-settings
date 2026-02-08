@@ -1,6 +1,6 @@
 {
   "PHP Split": {
     "prefix": "php",
-    "body": "?> $0 <?php",
+    "body": "?>$0<?php",
   },
 }

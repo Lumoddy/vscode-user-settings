@@ -202,7 +202,7 @@
   },
 
   {
-    "key": "ctrl+shift+u",
+    "key": "alt+u",
     "command": "workbench.panel.chat",
   },
   {
@@ -384,7 +384,7 @@
   {
     "key": "ctrl+alt+left",
     "command": "runCommands",
-    "args": { // x8
+    "args": {
       "commands": [ // Requires 'Select By' by rioj7
         "cursorLeftSelect",
         "selectby.swapActive",
@@ -396,7 +396,7 @@
   {
     "key": "ctrl+alt+right",
     "command": "runCommands",
-    "args": { // x8
+    "args": {
       "commands": [
         "cursorRightSelect",
         "selectby.swapActive",

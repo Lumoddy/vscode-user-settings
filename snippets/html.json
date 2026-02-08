@@ -8,7 +8,7 @@
   "JS Link": {
     "prefix": "<js",
     "body": [
-      "<script src=\"${1:/script.js}\"></script>",
+      "<script${2| , type=\"module\" |}src=\"${1:/script.js}\"></script>",
     ],
   },
 
