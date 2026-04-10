@@ -202,6 +202,22 @@
   },
 
   {
+    "key": "ctrl+e",
+    "command": "-editor.action.toggleScreenReaderAccessibilityMode",
+    "when": "accessibilityHelpIsShown"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "mssql.runQuery",
+    "when": "editorTextFocus && !notebookEditorFocused && editorLangId == 'sql'"
+  },
+  {
+    "key": "ctrl+shift+e",
+    "command": "-mssql.runQuery",
+    "when": "editorTextFocus && !notebookEditorFocused && editorLangId == 'sql'"
+  },
+
+  {
     "key": "alt+u",
     "command": "workbench.panel.chat",
   },

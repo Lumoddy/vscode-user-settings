@@ -3,4 +3,12 @@
     "prefix": "php",
     "body": "?>$0<?php",
   },
+
+  "PHPDoc Prefix": {
+    "prefix": "pre",
+    "body": [
+      "/**",
+      " */$0",
+    ],
+  },
 }

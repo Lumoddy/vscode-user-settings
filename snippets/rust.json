@@ -1,4 +1,12 @@
 {
+  "Use all of module": {
+    "prefix": "usemod",
+    "body": [
+      "mod $0;",
+      "pub use $0::*;",
+    ]
+  },
+
   "Test Module": {
     "prefix": "tests",
     "body": [

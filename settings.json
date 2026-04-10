@@ -7,7 +7,9 @@
   "django.i18n": false,
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "workbench.editorAssociations": {
-    "*.svg": "default"
+    "*.copilotmd": "vscode.markdown.preview.editor",
+    "{hexdiff}:/**/*.*": "hexEditor.hexedit",
+    "*.svg": "imagePreview.previewEditor"
   },
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
@@ -26,7 +28,6 @@
   "accessibility.verbosity.panelChat": false,
   "workbench.editor.empty.hint": "hidden",
   "workbench.startupEditor": "none",
-
   "cSpell.userWords": [
     "accessibilities",
     "Automations",
@@ -36,18 +37,22 @@
     "chrono",
     "contenteditable",
     "Deque",
+    "dirents",
     "Dont",
     "firestore",
     "heapless",
     "importmap",
     "indexmap",
     "Interactable",
+    "Isnt",
     "keybind",
     "Keymap",
+    "lerp",
     "Lumoddy",
     "Mathf",
     "mcstructure",
     "Milli",
+    "Mutf",
     "nameof",
     "nodiscard",
     "noreturn",
@@ -58,21 +63,22 @@
     "repr",
     "resizer",
     "Rigidbody",
+    "ROWCOUNT",
     "smallvec",
     "springframework",
     "Stringifier",
     "syscalls",
     "textonly",
+    "TINYINT",
     "Toggleable",
     "Undoable",
     "uninit",
     "unshifted",
+    "VARCHAR",
     "vtable",
     "XAMPP"
   ],
-
   "java.compile.nullAnalysis.mode": "automatic",
-
   "editor.rulers": [
     {
       "color": "#303030",
@@ -84,11 +90,12 @@
     },
   ],
   "C_Cpp.default.cppStandard": "gnu++23",
-  "javascript.updateImportsOnFileMove.enabled": "always",
   "C_Cpp.suggestSnippets": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.preferences.importModuleSpecifierEnding": "js",
   "typescript.preferences.importModuleSpecifierEnding": "js",
   "editor.minimap.showSlider": "always",
+  "editor.minimap.renderCharacters": false,
   "editor.semanticTokenColorCustomizations": {
     "rules": {
       "parameter:javascript": {
@@ -96,9 +103,6 @@
       },
       "parameter:typescript": {
         "underline": true,
-      },
-      "parameter:csharp": {
-        "foreground": "#4FC1FF",
       },
     },
   },
@@ -120,26 +124,79 @@
   },
   "terminal.integrated.persistentSessionReviveProcess": "onExitAndWindowClose",
   "scm.diffDecorations": "gutter",
-  "rust-analyzer.inlayHints.parameterHints.enable": false,
-  "rust-analyzer.inlayHints.typeHints.enable": false,
-  "rust-analyzer.assist.preferSelf": true,
   "hexeditor.columnWidth": 16,
   "hexeditor.showDecodedText": true,
   "hexeditor.defaultEndianness": "little",
   "hexeditor.inspectorType": "aside",
+  "rust-analyzer.inlayHints.parameterHints.enable": false,
+  "rust-analyzer.inlayHints.typeHints.enable": false,
+  "rust-analyzer.assist.preferSelf": true,
   "rust-analyzer.completion.autoIter.enable": false,
   "rust-analyzer.completion.callable.snippets": "add_parentheses",
   "rust-analyzer.completion.postfix.enable": false,
   "rust-analyzer.imports.granularity.group": "module",
   "rust-analyzer.imports.prefix": "plain",
-  "editor.minimap.renderCharacters": false,
+  "rust-analyzer.inlayHints.genericParameterHints.const.enable": false,
+  "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "with_block",
+  "rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames": true,
   "swift.warnAboutSymlinkCreation": false,
   "haskell.manageHLS": "GHCup",
   "diffEditor.hideUnchangedRegions.enabled": true,
-  "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.ignoreTrimWhitespace": false,
   "files.associations": {
-    "*.php": "php"
+    "*.php": "php",
+    "*.anim": "yaml",
+    "*.meta": "yaml",
+    "*.controller": "yaml",
+    "*.asset": "yaml",
+    "*.inputactions": "json",
+    "*.unity": "yaml",
+    "*.scenetemplate": "yaml"
   },
   "github.copilot.nextEditSuggestions.enabled": true,
   "php.validate.executablePath": "/opt/lampp/bin/php",
+  "php.suggest.basic": false,
+  "intelephense.codeLens.implementations.enable": true,
+  "intelephense.codeLens.overrides.enable": true,
+  "intelephense.codeLens.parent.enable": true,
+  "intelephense.codeLens.references.enable": true,
+  "intelephense.codeLens.usages.enable": true,
+  "intelephense.completion.fullyQualifyGlobalConstantsAndFunctions": true,
+  "intelephense.diagnostics.noMixedTypeCheck": false,
+  "intelephense.diagnostics.relaxedTypeCheck": false,
+  "intelephense.format.braces": "allman",
+  "explorer.confirmDelete": false,
+  "hediet.vscode-drawio.resizeImages": null,
+  "cSpell.enabledNotifications": {
+    "Lines too Long": false,
+    "Maximum Word Length Exceeded": false,
+    "Average Word Length too Long": false
+  },
+  "mssql.connectionGroups": [
+    {
+      "name": "ROOT",
+      "id": "ROOT"
+    }
+  ],
+  "mssql.connections": [
+    {
+      "server": "SQL8012.site4now.net",
+      "database": "db_9ab8b7_126dda13878",
+      "user": "db_9ab8b7_126dda13878_admin",
+      "password": "",
+      "authenticationType": "SqlLogin",
+      "encrypt": "true",
+      "trustServerCertificate": false,
+      "connectTimeout": 30,
+      "commandTimeout": 30,
+      "connectRetryCount": 1,
+      "connectRetryInterval": 10,
+      "applicationName": "vscode-mssql",
+      "savePassword": true,
+      "profileName": "DataDriven",
+      "groupId": "ROOT",
+      "id": "c634a945-e616-4873-ad8d-2e4fe9053963"
+    }
+  ],
+  "mssql.autoDisableNonTSqlLanguageService": false,
 }
