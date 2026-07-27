@@ -13,6 +13,8 @@
       "#[cfg(test)]",
       "mod tests",
       "{",
+      "\tuse super::*;",
+      "",
       "\t#[test]",
       "\tfn ${1:test}()",
       "\t{",

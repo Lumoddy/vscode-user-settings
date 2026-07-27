@@ -288,7 +288,7 @@
   "For Loop": {
     "prefix": "for",
     "body": [
-      "for (let ${1:i} = 0; ${1:i} < ${2:length}; ${1:i}++)",
+      "for (let ${1:i} = 0; ${1:i} < ${2:length}; ${1:i} += 1)",
       "{",
       "\t$0",
       "}",
@@ -305,7 +305,41 @@
   },
   "Throw Error": {
     "prefix": "throw",
-    "body": "throw new ${1|Error,TypeError,SyntaxError,RangeError,ReferenceError|}(`$0`);",
+    "body": "throw new ${1|Error,TypeError,SyntaxError,RangeError,ReferenceError|}($0);",
+  },
+  "Guard This": {
+    "prefix": "guardthis",
+    "body": [
+      "if (!(this instanceof ${1:/* class */}))",
+      "\tthrow new TypeError(",
+      "\t\t`'${2:function}' called on an object that does not implement ` +",
+      "\t\t`interface ${1:class}.`);",
+    ],
+  },
+  "Guard Argument Is Class": {
+    "prefix": "guardarg",
+    "body": [
+      "if (${1:arg} === null || typeof ${1:arg} !== \"object\")",
+      "\tthrow new TypeError(",
+      "\t\t`${3:class}.${4:function}: Argument ${5:N} is not an ` +",
+      "\t\t`object.`);",
+      "else if (!(${1:arg} instanceof ${2:/* class */}))",
+      "\tthrow new TypeError(",
+      "\t\t`${3:class}.${4:function}: Argument ${5:N} does not ` +",
+      "\t\t`implement interface ${2:class}.`);",
+    ],
+  },
+  "Guard Argument Is Function": {
+    "prefix": "guardfn",
+    "body": [
+      "if (${1:arg} === null || typeof ${1:arg} !== \"object\")",
+      "\tthrow new TypeError(",
+      "\t\t`${2:class}.${3:function}: Argument ${4:N} is not an ` +",
+      "\t\t`object.`);",
+      "else if (typeof ${1:arg} !== \"function\")",
+      "\tthrow new TypeError(",
+      "\t\t`${2:class}.${3:function}: Argument ${4:N} does is not callable.`);",
+    ],
   },
 
   "Custom HTMLElement": {
