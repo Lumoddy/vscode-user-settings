@@ -93,6 +93,38 @@
       "\t\t`'${2:function}' called on an object that does not implement interface ${1:class}.`);",
     ],
   },
+  "Guard Argument Is Number": {
+    "prefix": "guardnumber",
+    "body": [
+      "${1:arg} = String(${1:arg});",
+    ],
+  },
+  "Guard Argument Is Positive Integer": {
+    "prefix": "guardindex",
+    "body": [
+      "${1:arg} = Number(${1:arg});",
+      "if (!Number.isInteger(${1:arg}) || ${1:arg} < 0)",
+      "\tthrow new RangeError(",
+      "\t\t`${2:class}.${3:function}: Argument ${4:N} is not a valid index.`);",
+    ],
+  },
+  "Guard Argument Is String": {
+    "prefix": "guardstring",
+    "body": [
+      "${1:arg} = String(${1:arg});",
+    ],
+  },
+  "Guard Argument Is Function": {
+    "prefix": "guardfn",
+    "body": [
+      "if (${1:arg} === null || (typeof ${1:arg} !== \"object\" && typeof ${1:arg} !== \"function\"))",
+      "\tthrow new TypeError(",
+      "\t\t`${2:class}.${3:function}: Argument ${4:N} is not an object.`);",
+      "else if (typeof ${1:arg} !== \"function\")",
+      "\tthrow new TypeError(",
+      "\t\t`${2:class}.${3:function}: Argument ${4:N} is not callable.`);",
+    ],
+  },
   "Guard Argument Is Class": {
     "prefix": "guardarg",
     "body": [
@@ -104,15 +136,49 @@
       "\t\t`${3:class}.${4:function}: Argument ${5:N} does not implement interface ${2:class}.`);",
     ],
   },
-  "Guard Argument Is Function": {
-    "prefix": "guardfn",
+  "Guard Option Is Number": {
+    "prefix": "guardoptionnumber",
     "body": [
-      "if (${1:arg} === null || typeof ${1:arg} !== \"object\")",
+      "const ${1:option} = String(options.${1:option});",
+    ],
+  },
+  "Guard Option Is Positive Integer": {
+    "prefix": "guardoptionindex",
+    "body": [
+      "const ${1:option} = Number(options.${1:option});",
+      "if (!Number.isInteger(${1:option}) || ${1:option} < 0)",
+      "\tthrow new RangeError(",
+      "\t\t`${2:class}.${3:function}: Option '${1:option}' is not a valid index.`);",
+    ],
+  },
+  "Guard Option Is String": {
+    "prefix": "guardoptionstring",
+    "body": [
+      "const ${1:option} = String(options.${1:option});",
+    ],
+  },
+  "Guard Option Is Function": {
+    "prefix": "guardoptionfn",
+    "body": [
+      "const ${1:option} = options.${1:option};",
+      "if (${1:option} === null || (typeof ${1:option} !== \"object\" && typeof ${1:option} !== \"function\"))",
       "\tthrow new TypeError(",
-      "\t\t`${2:class}.${3:function}: Argument ${4:N} is not an object.`);",
-      "else if (typeof ${1:arg} !== \"function\")",
+      "\t\t`${2:class}.${3:function}: Option '${1:option}' is not an object.`);",
+      "else if (typeof ${1:option} !== \"function\")",
       "\tthrow new TypeError(",
-      "\t\t`${2:class}.${3:function}: Argument ${4:N} does is not callable.`);",
+      "\t\t`${2:class}.${3:function}: Option '${1:option}' is not callable.`);",
+    ],
+  },
+  "Guard Option Is Class": {
+    "prefix": "guardoptionarg",
+    "body": [
+      "const ${1:option} = options.${1:option};",
+      "if (${1:option} === null || typeof ${1:option} !== \"object\")",
+      "\tthrow new TypeError(",
+      "\t\t`${3:class}.${4:function}: Option '${1:option}' is not an object.`);",
+      "else if (!(${1:option} instanceof ${2:/* class */}))",
+      "\tthrow new TypeError(",
+      "\t\t`${3:class}.${4:function}: Option '${1:option}' does not implement interface ${2:class}.`);",
     ],
   },
 

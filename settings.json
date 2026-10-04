@@ -104,9 +104,9 @@
   ],
   "C_Cpp.default.cppStandard": "gnu++23",
   "C_Cpp.suggestSnippets": false,
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "javascript.preferences.importModuleSpecifierEnding": "js",
-  "typescript.preferences.importModuleSpecifierEnding": "js",
+  "js.updateImportsOnFileMove.enabled": "always",
+  "js.preferences.importModuleSpecifierEnding": "js",
+  "ts.preferences.importModuleSpecifierEnding": "js",
   "editor.minimap.showSlider": "always",
   "editor.minimap.renderCharacters": false,
   "editor.semanticTokenColorCustomizations": {
@@ -236,4 +236,5 @@
   "go.inlayHints.parameterNames": true,
   "chat.viewSessions.orientation": "stacked",
   "hediet.vscode-drawio.theme": "automatic",
+  "workbench.colorTheme": "Dark Modern",
 }
